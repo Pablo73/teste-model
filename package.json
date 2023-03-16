@@ -1,0 +1,53 @@
+{
+  "name": "sd-0x-exercise-teste-model",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "debug": "nodemon --ignore coverage --ignore thunder*.json src/server.js",
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx",
+    "test": "jest --config ./jest.config.js --runInBand --detectOpenHandles",
+    "test:coverage": "nyc --include src/models  --reporter json-summary mocha  tests/unit/**/*.test.js --exit",
+    "test:unit": "mocha tests/**/*.js --exit",
+    "migration": "node -e \"require('./__tests__/_utils').runMigration()\""
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betrybe/sd-0x-exercise-teste-model.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/betrybe/sd-0x-exercise-teste-model/issues"
+  },
+  "homepage": "https://github.com/betrybe/sd-0x-exercise-teste-model#readme",
+  "dependencies": {
+    "@hapi/boom": "^9.1.0",
+    "camelize": "1.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "joi": "^17.6.0",
+    "mysql2": "^2.3.0",
+    "snakeize": "^0.1.0",
+    "wait-on": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.4",
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "eslint-config-trybe-backend": "^1.0.4",
+    "frisby": "^2.1.2",
+    "jest": "^26.4.1",
+    "mocha": "^8.4.0",
+    "mysql-import": "^5.0.21",
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0",
+    "sinon": "^11.1.1",
+    "sinon-chai": "3.7",
+    "supertest": "^6.2.2"
+  }
+}
