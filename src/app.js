@@ -1,6 +1,6 @@
 const express = require('express');
 const connection = require('./models/connection');
-const travelModel = require('./models/travel.model');
+const { travelModel, driverModel } = require('./models');
 
 const app = express();
 
@@ -105,10 +105,9 @@ app.put('/drivers/:driverId/travels/:travelId/end', async (req, res) => {
   res.status(200).json(result);
 });
 
-app.get('/drivers', async (req, res) => {
+app.get('/drivers', async (_req, res) => {
   try {
-    const models = require('./models');
-    const drivers = await models.driverModel.findAll();
+    const drivers = await driverModel.findAll();
     return res.status(200).json(drivers);
   } catch (error) {
     console.error(error);

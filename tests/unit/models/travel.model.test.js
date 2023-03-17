@@ -18,14 +18,20 @@ describe('Testes de unidade do model de viagens', function () {
   });
 
   it('Recuperando uma travel a partir do seu id', async function () {
+    // arrange
     sinon.stub(connection, 'execute').resolves([[travelsFromDB[0]]]);
+    // act
     const result = await travelModel.findById(1);
+    // assert
     expect(result).to.be.deep.equal(travels[0]);
   });
 
-  it('Recuperando as travels a partir do seu travel_status_id', async function () {
-    sinon.stub(connection, 'execute').resolves([travelsFromDB]);
-    const result = await travelModel.findByTravelStatusId(1);
-    expect(result).to.be.deep.equal(travels);
-  });
+ it('Recuperando as travels a partir do seu travel_status_id', async function () {
+   // arrange
+   sinon.stub(connection, 'execute').resolves([travelsFromDB]);
+   // act
+   const result = await travelModel.findByTravelStatusId(1);
+   // assert
+   expect(result).to.be.deep.equal(travels);
+ });
 });
